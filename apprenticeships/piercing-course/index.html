@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Body Art Training | Embellished Studios</title><meta name="description" content="Weekend piercing courses and tattoo or piercing apprenticeship information from Embellished Studios in St. George, Utah."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/styles.css">  <link rel="canonical" href="https://www.embellishedstudios.com/apprenticeships/piercing-course/">
+</head>
+<body><a class="skip-link" href="#content">Skip to content</a><header class="site-header"><div class="shell nav"><a class="wordmark" href="../../"><span>EMBELLISHED</span><span>STUDIOS</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu">☰</button><nav class="nav-links"><a href="../../#services">Services</a><a href="../../piercing-trainings/">Training</a><a href="../../#studio">Studio</a><a href="../../contact/">Contact</a><a class="button" href="../../contact/">Ask about training</a></nav></div></header>
+<main id="content"><section class="page-hero"><div class="shell"><div class="breadcrumbs"><a href="../../">Home</a> / Training</div><div class="kicker">Body-art education</div><h1>Learn with your hands—and a mentor beside you.</h1><p>Professional piercing courses and apprenticeship pathways designed to build practical skill, safer habits, and real-world confidence.</p></div></section>
+<section class="section"><div class="shell training-grid"><div><div class="kicker">Weekend piercing course</div><h2 style="font-size:clamp(3rem,6vw,5.5rem);line-height:.94;margin:18px 0">Three focused days. A foundation you can use.</h2><p>The weekend program combines lecture, procedure review, mannequin practice, hands-on skill development, and supervised model work. It is intended for students outside Washington and Iron County; local students should ask about apprenticeship requirements.</p><ul class="curriculum"><li><strong>Day 1 · Fundamentals</strong>Rules, regulations, sanitation, consent, jewelry, equipment, and mannequin practice.</li><li><strong>Day 2 · Skill building</strong>Technique review and supervised practice beginning with foundational piercings.</li><li><strong>Day 3 · Model work</strong>Hands-on model appointments, advanced placement introduction, debrief, and certificate completion.</li></ul></div><aside class="training-price"><span>Course investment</span><strong>$2,500</strong><p>$500 nonrefundable deposit holds your place. The remaining $2,000 is due on the first day of class.</p><p>Students must be 18 or older and complete required Bloodborne Pathogens and CPR certification before the course begins. Licensing requirements vary by state and county; contact your local health department before enrolling.</p><a class="button red" href="mailto:embellished.studios.stg@gmail.com?subject=Piercing%20training%20inquiry">Ask about the next course</a></aside></div></section>
+<section class="section dark"><div class="shell"><div class="section-head"><div><div class="kicker">Local pathways</div><h2>Apprenticeships for serious learners.</h2></div><p>Tattoo and piercing apprenticeships may be available for residents of Washington and Iron County. Availability, hours, cost, licensing steps, and acceptance requirements are discussed individually.</p></div><div class="process-grid"><article class="process-card" style="border-color:rgba(255,255,255,.15);background:transparent"><span>01</span><h3>Tattoo apprenticeship</h3><p>Ask about current eligibility, mentorship expectations, portfolio review, and local licensing requirements.</p></article><article class="process-card" style="border-color:rgba(255,255,255,.15);background:transparent"><span>02</span><h3>Piercing apprenticeship</h3><p>For local students who need a longer supervised pathway toward county requirements and professional practice.</p></article><article class="process-card" style="border-color:rgba(255,255,255,.15);background:transparent"><span>03</span><h3>Start with research</h3><p>Requirements differ by jurisdiction. Confirm your local rules before paying a deposit or beginning training.</p></article></div></div></section></main>
+<footer class="site-footer"><div class="shell"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="../../"><span>EMBELLISHED</span><span>STUDIOS</span></a><p>Custom tattoos, piercings, and body-art education in St. George, Utah.</p></div><div class="footer-column"><h3>Visit</h3><span>127 N 500 E<br>Suite D & E<br>Saint George, UT 84770</span><span>By appointment only</span></div><div class="footer-column"><h3>Contact</h3><a href="sms:+14356685988?body=BOOK">Text 435-668-5988</a><a href="mailto:embellished.studios.stg@gmail.com">Email the studio</a><a href="https://www.instagram.com/embellished.studios/">Instagram</a></div><div class="footer-column"><h3>Information</h3><a href="../../sms-consent/">SMS consent</a><a href="../../privacy-policy/">Privacy Policy</a><a href="../../terms/">Terms & Conditions</a></div></div><div class="footer-bottom"><span>© <span data-year></span> Embellished Studios LLC</span><span>Text STOP to opt out · HELP for help</span></div></div></footer><script>
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuButton && navLinks) {
+  menuButton.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+}
+
+document.querySelectorAll('[data-sms-form]').forEach((form) => {
+  const consent = form.querySelector('[name="sms_consent"]');
+  const submit = form.querySelector('[type="submit"]');
+  const status = form.querySelector('.form-status');
+
+  const sync = () => { submit.disabled = !consent.checked; };
+  consent.addEventListener('change', sync);
+  sync();
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!consent.checked) return;
+
+    const data = new FormData(form);
+    const service = data.get('service') || 'appointment';
+    const lines = [
+      'BOOK',
+      `Name: ${data.get('name') || ''}`,
+      `Service: ${service}`,
+      `Preferred timing: ${data.get('timing') || 'Flexible'}`,
+      `Request: ${data.get('details') || ''}`
+    ];
+    const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&' : '?';
+    const smsUrl = `sms:+14356685988${separator}body=${encodeURIComponent(lines.join('\n'))}`;
+    status.textContent = 'Your Messages app is opening with the request prepared. Review it, then press Send to contact Embellished Studios.';
+    status.classList.add('visible');
+    window.location.href = smsUrl;
+  });
+});
+
+document.querySelectorAll('[data-year]').forEach((node) => {
+  node.textContent = new Date().getFullYear();
+});
+
+</script></body></html>

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tattoo Request | Embellished Studios</title><meta name="description" content="Request a custom or flash tattoo appointment with Embellished Studios in St. George, Utah."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/styles.css">  <link rel="canonical" href="https://www.embellishedstudios.com/tattoo-request-form/">
+</head>
+<body><a class="skip-link" href="#content">Skip to content</a><header class="site-header"><div class="shell nav"><a class="wordmark" href="../"><span>EMBELLISHED</span><span>STUDIOS</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu">☰</button><nav class="nav-links"><a href="../#services">Services</a><a href="../piercing-trainings/">Training</a><a href="../#studio">Studio</a><a href="../contact/">Contact</a><a class="button" href="../piercing-request-form/">Piercing request</a></nav></div></header>
+<main id="content"><section class="page-hero"><div class="shell"><div class="breadcrumbs"><a href="../">Home</a> / Tattoo request</div><div class="kicker">Start your tattoo</div><h1>Tell us what you’re imagining.</h1><p>Complete the details below and continue to your Messages app. You’ll review the prepared request before choosing whether to send it.</p></div></section>
+<section class="section"><div class="shell form-layout"><aside class="form-sidebar"><div class="kicker">Before you begin</div><h2>A request is not yet an appointment.</h2><p>We’ll review your concept, placement, size, references, and availability before confirming your visit. Pricing and deposit requirements are provided after review.</p><ul class="contact-list"><li><strong>Location</strong><span>127 N 500 E, Suite D & E<br>Saint George, Utah 84770</span></li><li><strong>Studio hours</strong><span>By appointment only</span></li><li><strong>No SMS?</strong><a href="mailto:embellished.studios.stg@gmail.com?subject=Tattoo%20request">Send your request by email</a></li></ul></aside>
+<form class="request-form" data-sms-form><div class="form-grid">
+  <div class="field"><label for="tattoo-name">Full name</label><input id="tattoo-name" name="name" autocomplete="name" required></div>
+  <div class="field"><label for="tattoo-phone">Mobile number</label><input id="tattoo-phone" name="phone" type="tel" autocomplete="tel" required></div>
+  <div class="field"><label for="tattoo-service">Tattoo type</label><select id="tattoo-service" name="service"><option>Custom tattoo</option><option>Flash tattoo</option><option>Fine-line tattoo</option><option>Geometric or ornamental tattoo</option><option>Cover-up consultation</option></select></div>
+  <div class="field"><label for="tattoo-timing">Preferred timing</label><input id="tattoo-timing" name="timing" placeholder="Days, dates, or flexible"></div>
+  <div class="field full"><label for="tattoo-details">Concept, placement, and approximate size</label><textarea id="tattoo-details" name="details" required placeholder="Describe your idea, body placement, approximate size, and any important details. Reference images can be sent after the conversation begins."></textarea></div>
+  <div class="consent"><input id="tattoo-consent" name="sms_consent" type="checkbox"><label for="tattoo-consent"><strong>I agree to receive customer-care text messages from Embellished Studios</strong> about my tattoo inquiry, booking, appointment confirmations, reminders, scheduling changes, preparation, and aftercare. Message frequency varies based on my inquiries and appointments. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. View our <a href="../terms/">Terms</a> and <a href="../privacy-policy/">Privacy Policy</a>.</label></div>
+  <div class="form-actions"><button class="button red" type="submit">Continue to text request</button><span class="fine-print">Checkbox is optional and unchecked by default. Email is available if you prefer not to use SMS.</span></div>
+  <div class="form-status" role="status" aria-live="polite"></div>
+</div></form></div></section></main>
+<footer class="site-footer"><div class="shell"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="../"><span>EMBELLISHED</span><span>STUDIOS</span></a><p>Custom tattoos, piercings, and body-art education in St. George, Utah.</p></div><div class="footer-column"><h3>Visit</h3><span>127 N 500 E<br>Suite D & E<br>Saint George, UT 84770</span><span>By appointment only</span></div><div class="footer-column"><h3>Contact</h3><a href="sms:+14356685988?body=BOOK">Text 435-668-5988</a><a href="mailto:embellished.studios.stg@gmail.com">Email the studio</a><a href="https://www.instagram.com/embellished.studios/">Instagram</a></div><div class="footer-column"><h3>Information</h3><a href="../sms-consent/">SMS consent</a><a href="../privacy-policy/">Privacy Policy</a><a href="../terms/">Terms & Conditions</a></div></div><div class="footer-bottom"><span>© <span data-year></span> Embellished Studios LLC</span><span>Text STOP to opt out · HELP for help</span></div></div></footer><script>
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuButton && navLinks) {
+  menuButton.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+}
+
+document.querySelectorAll('[data-sms-form]').forEach((form) => {
+  const consent = form.querySelector('[name="sms_consent"]');
+  const submit = form.querySelector('[type="submit"]');
+  const status = form.querySelector('.form-status');
+
+  const sync = () => { submit.disabled = !consent.checked; };
+  consent.addEventListener('change', sync);
+  sync();
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!consent.checked) return;
+
+    const data = new FormData(form);
+    const service = data.get('service') || 'appointment';
+    const lines = [
+      'BOOK',
+      `Name: ${data.get('name') || ''}`,
+      `Service: ${service}`,
+      `Preferred timing: ${data.get('timing') || 'Flexible'}`,
+      `Request: ${data.get('details') || ''}`
+    ];
+    const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&' : '?';
+    const smsUrl = `sms:+14356685988${separator}body=${encodeURIComponent(lines.join('\n'))}`;
+    status.textContent = 'Your Messages app is opening with the request prepared. Review it, then press Send to contact Embellished Studios.';
+    status.classList.add('visible');
+    window.location.href = smsUrl;
+  });
+});
+
+document.querySelectorAll('[data-year]').forEach((node) => {
+  node.textContent = new Date().getFullYear();
+});
+
+</script></body></html>
