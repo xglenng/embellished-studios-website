@@ -9,3 +9,12 @@ Prepared dedicated `/tattoos/` and `/piercings/` pages, homepage location headin
 - Confirm Google Business Profile address, phone, appointment URL, business categories, and actual hours match the studio. No Business Profile changes were made.
 
 No ranking guarantees. These changes are prepared for review, not published.
+
+## AI portrait — 2026-10-19
+The primary Meet Val image is now an AI-assisted portrait based on the supplied outdoor photograph. Generated with the built-in image tool. Original portraits and generated PNG master are retained; WebP variants are used on the website. Final prompt: preserve Val’s likeness and natural skin detail; solo upper-body portrait in a simple black top, softly lit against a blurred forest-green/charcoal studio background with brass accents; no text, extra people, procedure, or invented tattoo designs. Local preview only; likeness review pending.
+
+Portrait revision v3 uses the newly supplied smiling photo as the edit target and the previous image solely as the green/brass background reference. Built-in image tool prompt: preserve Val’s real face, expression, hair, and jewelry; remove the second person and replace only the setting; natural light balance, no facial reshaping or beauty retouching. Earlier assets retained.
+
+Portrait revision v3 uses the newly supplied smiling photo as the edit target and the previous image solely as the green/brass background reference. Built-in image tool prompt: preserve Val’s real face, expression, hair, and jewelry; remove the second person and replace only the setting; natural light balance, no facial reshaping or beauty retouching. Earlier assets retained.
+
+Lower studio portrait updated using the built-in image tool: extract the seated portrait from the supplied collage and correct only the arm sleeve using the real butterfly/botanical/flower references, preserving pose, face, clothing, and background. Generated master and optimized WebP saved as val-seated-tattoo-corrected-v1. AI tattoo details require visual review; not a portfolio example.
