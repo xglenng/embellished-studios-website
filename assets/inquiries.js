@@ -41,3 +41,13 @@ document.querySelectorAll('[data-inquiry-form]').forEach((form) => {
     }
   });
 });
+
+// Program links open the on-page form with the selected apprenticeship.
+document.querySelectorAll('[data-inquiry-subject]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const form = document.getElementById('training-inquiry');
+    if (!form) return;
+    form.elements.subject.value = link.dataset.inquirySubject;
+    form.elements.name.focus({ preventScroll: true });
+  });
+});
